@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/application.css' %}">
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>MEMBERSHIPS</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Membership</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="card shadow-lg rounded-4 p-4 border-0">
+
+        <h3 class="mb-4 text-center form-heading">
+            Become a Member of Together Culture
+        </h3>
+
+        {% include 'includes/messages.html' %}
+
+        {% if not already_applied %}
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label class="form-label question-label">1. Which of the following best describes your current interest?</label><br>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="current_interest" value="caring" required> Caring</div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="current_interest" value="sharing"> Sharing</div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="current_interest" value="creating"> Creating</div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="current_interest" value="experiencing"> Experiencing</div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="current_interest" value="working"> Working</div>
+            </div>
+
+            <div class="mb-4"><label class="form-label question-label">2. What are your hobbies or passions you'd like to share with the community?</label><textarea name="hobbies_passions" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">3. Why do you want to join Together Culture?</label><textarea name="join_reason" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">4. How would you like to contribute to the community?</label><textarea name="contribution_method" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">5. What are your goals as a member?</label><textarea name="member_goals" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">6. How often do you expect to participate in activities?</label><textarea name="participation_frequency" class="form-control" rows="2" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">7. Do you have any accessibility needs or preferences?</label><textarea name="accessibility_needs" class="form-control" rows="2"></textarea></div>
+
+            <div class="mb-4">
+                <label class="form-label question-label">8. Are you interested in receiving newsletters or updates in the future?</label><br>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="wants_newsletter" value="True" required> Yes</div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="wants_newsletter" value="False"> No</div>
+            </div>
+
+            <div class="mb-4"><label class="form-label question-label">9. What causes or issues are you most passionate about?</label><textarea name="passionate_causes" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">10. What type of events or activities would you love to see here?</label><textarea name="event_ideas" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">11. Have you participated in any community, creative, or volunteer projects before?</label><textarea name="previous_projects" class="form-control" rows="3" required></textarea></div>
+            <div class="mb-4"><label class="form-label question-label">12. How do you see yourself contributing to the Together Culture ecosystem in the next 6 months?</label><textarea name="six_month_contribution" class="form-control" rows="3" required></textarea></div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold">Submit Application</button>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

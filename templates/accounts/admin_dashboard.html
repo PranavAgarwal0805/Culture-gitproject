@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+  <div class="container breadcrumb-area">
+    <div class="breadcrumb-areas">
+      <h1>Admin Dashboard</h1>
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li class="active">{{ user.username }} (Admin)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="container-fluid dashboard-wrapper">
+  <div class="row g-0 d-flex min-vh-100">
+    
+    <!-- Sidebar -->
+    <div class="col-md-2 p-0">
+      <div class="sidebar d-flex flex-column h-100">
+        <a href="#" class="active">📊 Admin Dashboard</a>
+        <a href="#">👤 Manage Users</a>
+        <a href="#">📅 Manage Events</a>
+        <a href="#">📝 Member Requests</a>
+        <a href="#">📚 Learning Content</a>
+        <a href="#">📈 Reports</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 content-area">
+      <div class="dashboard-header mb-4">Welcome, {{ user.first_name|default:user.user_name }} </div>
+
+      <!-- Admin Metrics -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Total Members</p>
+            <div class="metric-number">145</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Events Created</p>
+            <div class="metric-number">37</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Pending Approvals</p>
+            <div class="metric-number">9</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Reports Submitted</p>
+            <div class="metric-number">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Membership Requests -->
+      <h5 class="section-title">🕵️ Member Requests</h5>
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="card-box">
+            <p><strong>Username:</strong> john_doe</p>
+            <p><strong>Interest:</strong> Creating, Experiencing</p>
+            <button class="btn btn-success btn-sm">Approve</button>
+            <button class="btn btn-danger btn-sm">Reject</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-box">
+            <p><strong>Username:</strong> jane_smith</p>
+            <p><strong>Interest:</strong> Sharing, Caring</p>
+            <button class="btn btn-success btn-sm">Approve</button>
+            <button class="btn btn-danger btn-sm">Reject</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity or System Reports -->
+      <h5 class="section-title">📢 System Updates</h5>
+      <ul class="list-group">
+        <li class="list-group-item">New event created: "Creative Lab - April 2025"</li>
+        <li class="list-group-item">5 new users registered today</li>
+        <li class="list-group-item">Membership application form updated</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

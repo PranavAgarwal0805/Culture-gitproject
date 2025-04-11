@@ -1,0 +1,121 @@
+    {% extends 'base.html' %}
+   
+    {% block content %}
+
+    {% load static %}
+    
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/membership.css' %}">
+
+    <div class="sub-banner overview-bgi">
+        <div class="container breadcrumb-area">
+            <div class="breadcrumb-areas">
+                <h1>MEMBERSHIPS</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">Membership</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membership Cards Section -->
+    <div class="container py-5">
+        <h2 class="section-heading">Choose Your Membership Type</h2>
+        <div class="row justify-content-center g-4">
+
+            <!-- Community Member -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card membership-card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 membership-title">
+                            <strong>Community Member</strong><br>
+                        </h4>
+                        <p class="card-text">
+                            🌍 <strong>Access to Online Community</strong><br>
+                            Join forums, discussions, and group chats.<br><br>
+
+                            🎟 <strong>Event Invitations</strong><br>
+                            Attend open meetups, cultural events, and online webinars.<br><br>
+
+                            🗂 <strong>Basic Resources</strong><br>
+                            Access shared knowledge, articles, and recorded sessions.<br><br>
+
+                            🤝 <strong>Networking</strong><br>
+                            Connect with other members through the community directory.<br><br>
+
+                            ❌ <strong>No Workspace Access</strong><br>
+                            This is a virtual membership with no physical workspace benefits.<br><br>
+
+                            ✅ <strong>Great for:</strong> Those who want to explore the community and participate in online events.
+                        </p>
+                        <a href="{% url 'application' %}?type=Community_Member" class="btn btn-primary btn-apply">Apply</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Access Member -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card membership-card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 membership-title">
+                            <strong>Key Access Member</strong><br>
+                        </h4>
+                        <p class="card-text">
+                            🔑 <strong>All Community Member Benefits +</strong><br><br>
+
+                            🚪 <strong>Physical Space Access</strong><br>
+                            Entry to Together Culture hubs for collaboration.<br><br>
+
+                            🎭 <strong>Exclusive Cultural Events</strong><br>
+                            VIP access to networking sessions, creative workshops, and meetups.<br><br>
+
+                            🏠 <strong>Shared Lounge & Social Space</strong><br>
+                            Use shared spaces for socializing and group work.<br><br>
+
+                            🛠 <strong>Collaboration Hub</strong><br>
+                            Get priority access to community projects and collaborations.<br><br>
+
+                            ✅ <strong>Great for:</strong> Active members who want both online and occasional physical meetups.
+                        </p>
+                        <a href="{% url 'application' %}?type=key-Access_Member" class="btn btn-success btn-apply">Apply</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative Workspace Member -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card membership-card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 membership-title">
+                            <strong>Creative Workspace Member</strong><br>
+                        </h4>
+                        <p class="card-text">
+                            🌟 <strong>All Key Access Member Benefits +</strong><br><br>
+
+                            🏢 <strong>Dedicated Workspace</strong><br>
+                            Personal or shared desks in the creative hub.<br><br>
+
+                            🕰 <strong>24/7 Access</strong><br>
+                            Flexible working hours with meeting room reservations.<br><br>
+
+                            🚀 <strong>Creative Labs & Studio Access</strong><br>
+                            Use recording studios, design spaces, or tech labs (if applicable).<br><br>
+
+                            🎙 <strong>Leadership & Mentorship</strong><br>
+                            Lead community projects or get mentorship opportunities.<br><br>
+
+                            📢 <strong>Feature on the Platform</strong><br>
+                            Get your work promoted on the website and community pages.<br><br>
+
+                            ✅ <strong>Great for:</strong> Creators, entrepreneurs, or dedicated members who need workspace & full access.
+                        </p>
+                        <a href="{% url 'application' %}?type=Creative_Workspace_Member" class="btn btn-warning btn-apply">Apply</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock %}

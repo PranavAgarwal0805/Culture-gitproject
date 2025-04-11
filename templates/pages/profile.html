@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>PROFILE</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Profile</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <form method="POST" action="{% url 'profile' %}" id="profileForm">
+                {% csrf_token %}
+                <div class="card profile-box p-4 shadow-lg border-0">
+                    <div class="row g-0">
+                        <!-- Left: Avatar & Name -->
+                        <div class="col-md-4 text-center border-end d-flex flex-column align-items-center justify-content-center p-3">
+                            <img src="{% static 'img/avtar.jpg' %}"
+                                 class="img-fluid rounded-circle mb-3 profile-avatar" alt="Avatar">
+                            <h4 class="mb-1 fw-bold">{{ user.first_name }} {{ user.last_name }}</h4>
+                        </div>
+
+                        <!-- Right: Profile Details -->
+                        <div class="col-md-8 px-4 py-3">
+                            <h5 class="mb-3 border-bottom pb-2">User Information</h5>
+
+                            <!-- Read-only fields -->
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">First Name:</div>
+                                <div class="col-7"><input type="text" class="form-control-plaintext" readonly value="{{ user.first_name }}"></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Last Name:</div>
+                                <div class="col-7"><input type="text" class="form-control-plaintext" readonly value="{{ user.last_name }}"></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Username:</div>
+                                <div class="col-7"><input type="text" class="form-control-plaintext" readonly value="{{ user.user_name }}"></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Email:</div>
+                                <div class="col-7"><input type="email" class="form-control-plaintext" readonly value="{{ user.email }}"></div>
+                            </div>
+
+                            <!-- Editable fields (initially disabled) -->
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Interest:</div>
+                                <div class="col-7">
+                                    <input type="text" name="interest" class="form-control" value="{{ user.interest }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Address:</div>
+                                <div class="col-7">
+                                    <textarea name="address" class="form-control" disabled>{{ user.address }}</textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-5 text-muted">Mobile No:</div>
+                                <div class="col-7">
+                                    <input type="text" name="phone_no" class="form-control" value="{{ user.phone_no }}"
+                                           disabled pattern="[0-9]{10}" maxlength="10"
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                           title="Enter a 10-digit phone number">
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="text-end mt-4">
+                                <button type="button" class="btn btn-secondary me-2" id="editBtn">Edit</button>
+                                <button type="submit" class="btn btn-primary d-none" id="saveBtn">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Styles -->
+<style>
+    .profile-box {
+        border-radius: 15px;
+        background-color: #fff;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        padding: 5px;
+        background-color: #f8f8f8;
+    }
+
+    .fw-bold {
+        font-weight: 700 !important;
+    }
+
+    .row.mb-2 {
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 8px;
+        align-items: center;
+    }
+
+    .form-control-plaintext {
+        border: none;
+        background-color: transparent;
+        padding-left: 0;
+        font-weight: 500;
+    }
+</style>
+
+<!-- Script -->
+<script>
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const editableFields = document.querySelectorAll('input:not([readonly]):not([type="hidden"]), textarea');
+
+    editBtn.addEventListener('click', function () {
+        editableFields.forEach(field => field.removeAttribute('disabled'));
+        saveBtn.classList.remove('d-none');
+        editBtn.classList.add('d-none');
+    });
+</script>
+
+{% endblock %}

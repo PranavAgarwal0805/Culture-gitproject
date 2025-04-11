@@ -1,0 +1,14 @@
+# Normalize text files to LF
+* text=auto
+
+# Explicitly set binary files to be ignored for line-ending conversion
+*.css text
+*.js text
+*.svg binary
+*.woff binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.min.css text
+*.min.js text
+*.txt text

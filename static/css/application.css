@@ -1,0 +1,10 @@
+.form-heading {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.question-label {
+    color: rgb(85, 126, 214);
+    font-weight: bold;
+}

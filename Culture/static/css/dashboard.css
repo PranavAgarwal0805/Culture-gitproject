@@ -1,0 +1,98 @@
+.dashboard-wrapper {
+    background-color: #f4f7fa;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #212529;
+    color: #fff;
+    padding: 2rem 0.5rem;
+    min-height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a {
+    color: #adb5bd;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.sidebar a .icon {
+    font-size: 1.25rem;
+    margin-right: 12px;
+    color: #ffffffcc;
+}
+
+.content-area {
+    padding: 2.5rem;
+    background-color: #f4f7fa;
+    flex-grow: 1;
+}
+
+.card-box,
+.skill-card {
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card-box:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 140px;
+    background: #dee2e6;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.btn-dark {
+    background: #212529;
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+}
+
+.dashboard-header {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.metric-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}

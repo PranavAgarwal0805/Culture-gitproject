@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Banner start -->
+<div class="banner" id="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner banner-slider-inner text-center">
+            <div class="carousel-item banner-max-height active item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/car-1.jpg' %}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Welcome to Together Culture</h3>
+                    <h5>We’re on a mission to create a more inclusive, sustainable, and connected community<br>
+                        Whether you’re here to contribute, learn, or grow, you’re an essential part of our<br> 
+                        journey toward a brighter future.</h5>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/car-2.jpg' %}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Explore Your Dream</h3>
+                    <h5>We believe everyone deserves the chance to pursue their dreams<br>
+                        we’re here to support you every step of the way.</h5>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/car-3.jpg' %}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Explore Community</h3>
+                    <h5>Together we can build a more inclusive and ecological economy in Cambridgex<br>
+                        For every 100 paying members, 25 memberships are offered free to people facing financial hardship.</h5>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev none-580" href="#" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <a class="carousel-control-next none-580" href="#" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </a>
+    </div>
+</div>
+
+<!-- Intro section start -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <div class="intro-text">
+                    <h3>Do You Have Questions ?</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <a href="#" class="btn btn-md">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+
+{% endblock %}

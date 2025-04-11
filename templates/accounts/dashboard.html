@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+{% include 'includes/navbar.html' %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+  <div class="container breadcrumb-area">
+    <div class="breadcrumb-areas">
+      <h1>Dashboard</h1>
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li class="active">{{ user.user_name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sub Banner end -->
+
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+
+<div class="container-fluid dashboard-wrapper">
+  <div class="row g-0 d-flex min-vh-100">
+    <div class="col-md-2 p-0">
+      <div class="sidebar d-flex flex-column h-100">
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">📅 Events</a>
+        <a href="#">📚 Learning</a>
+        <a href="#">👥 Community</a>
+        <a href="#">📁 Documents</a>
+      </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="col-md-10 content-area">
+      <div class="dashboard-header mb-4">Welcome back, {{ user.first_name|default:user.user_name }}!</div>
+
+      <!-- Metrics -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Active Benefits</p>
+            <div class="metric-number">4 / 6</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Events Attended</p>
+            <div class="metric-number">12</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Learning Modules</p>
+            <div class="metric-number">3</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box text-center">
+            <p class="text-muted">Connections</p>
+            <div class="metric-number">28</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events -->
+      <h5 class="section-title">🎯 Recommended Events</h5>
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="card-box">
+            <div class="event-image">
+              <img 
+                src="{% static 'img/Event 1.jpeg' %}" 
+                class="img-fluid" 
+                alt="Event Image" 
+                style="width: 100%; height: 100%; border-radius: 8px;"
+              >
+            </div>
+            <h6 class="fw-semibold">Networking Masterclass</h6>
+            <p class="text-muted small">March 15, 2025 • 2:00 PM</p>
+            <button class="btn btn-dark w-100">Join Event</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box">
+            <div class="event-image">
+              <img 
+                src="{% static 'img/Event 2.jpg' %}" 
+                class="img-fluid" 
+                alt="Event Image" 
+                style="width: 100%; height: 100%; border-radius: 8px;"
+              >
+            </div>
+            <h6 class="fw-semibold">Digital Marketing Workshop</h6>
+            <p class="text-muted small">March 20, 2025 • 3:30 PM</p>
+            <button class="btn btn-dark w-100">Join Event</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box">
+            <div class="event-image">
+              <img 
+                src="{% static 'img/Event 3.jpg' %}" 
+                class="img-fluid" 
+                alt="Event Image" 
+                style="width: 100%; height: 100%; border-radius: 8px;"
+              >
+            </div>
+            <h6 class="fw-semibold">Leadership Summit</h6>
+            <p class="text-muted small">March 25, 2025 • 1:00 PM</p>
+            <button class="btn btn-dark w-100">Join Event</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="section-title">💡 Skills Offered</h5>
+          <div class="skill-card">
+            <div>
+              <strong>Web Development</strong><br>
+              <small class="text-muted">by Sarah Johnson</small>
+            </div>
+            <button class="btn btn-outline-primary btn-sm">Connect</button>
+          </div>
+          <div class="skill-card">
+            <div>
+              <strong>Digital Marketing</strong><br>
+              <small class="text-muted">by Mike Peters</small>
+            </div>
+            <button class="btn btn-outline-primary btn-sm">Connect</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h5 class="section-title">🎯 Skills Needed</h5>
+          <div class="skill-card">
+            <div>
+              <strong>UI/UX Design</strong><br>
+              <small class="text-muted">by Alex Thompson</small>
+            </div>
+            <button class="btn btn-outline-success btn-sm">Offer Help</button>
+          </div>
+          <div class="skill-card">
+            <div>
+              <strong>Content Writing</strong><br>
+              <small class="text-muted">by Lisa Chen</small>
+            </div>
+            <button class="btn btn-outline-success btn-sm">Offer Help</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

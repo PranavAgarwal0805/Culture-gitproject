@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/application.css' %}">
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>STATUS</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Status</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    {% if application %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <h2 class="text-center fw-bold mb-5" style="text-decoration: underline;">
+                        <i class="bi bi-journal-text me-2"></i>Application Details
+                    </h2>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">1. Which of the following best describes your current interest?</h5>
+                        <p class="fs-6 text-dark">{{ application.current_interest }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">2. What are your hobbies or passions you'd like to share with the community?</h5>
+                        <p class="fs-6 text-dark">{{ application.hobbies_passions }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">3. Why do you want to join Together Culture?</h5>
+                        <p class="fs-6 text-dark">{{ application.join_reason }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">4. How would you like to contribute to the community?</h5>
+                        <p class="fs-6 text-dark">{{ application.contribution_method }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">5. What are your goals as a member?</h5>
+                        <p class="fs-6 text-dark">{{ application.member_goals }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">6. How often do you expect to participate in activities?</h5>
+                        <p class="fs-6 text-dark">{{ application.participation_frequency }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">7. Do you have any accessibility needs or preferences?</h5>
+                        <p class="fs-6 text-dark">{{ application.accessibility_needs|default:"No specific needs." }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">8. Are you interested in receiving newsletters or updates in the future?</h5>
+                        <p class="fs-6 text-dark">{{ application.wants_newsletter|yesno:"Yes,No" }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">9. What causes or issues are you most passionate about?</h5>
+                        <p class="fs-6 text-dark">{{ application.passionate_causes }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">10. What type of events or activities would you love to see here?</h5>
+                        <p class="fs-6 text-dark">{{ application.event_ideas }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">11. Have you participated in any community, creative, or volunteer projects before?</h5>
+                        <p class="fs-6 text-dark">{{ application.previous_projects }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-secondary">12. How do you see yourself contributing to the Together Culture ecosystem in the next 6 months?</h5>
+                        <p class="fs-6 text-dark">{{ application.six_month_contribution }}</p>
+                    </div>
+
+                    <div class="text-end mt-4">
+                        <span class="text-muted small">Submitted on {{ application.submitted_at|date:"F j, Y, g:i a" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center fs-5" role="alert">
+        You haven’t submitted your application yet.
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
